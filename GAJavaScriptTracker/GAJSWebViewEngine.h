@@ -11,6 +11,10 @@
 
 @interface GAJSWebViewEngine : NSObject
 
+// If the debug flag is set, debug messages will be written to the log.
+// By default, the debug flag is disabled.
+@property(readwrite) BOOL debug;
+
 //webview for base html and JS Context
 @property(nonatomic, readonly) WebView *webView;
 @property(nonatomic, strong) WebView *debugwebview;

@@ -31,7 +31,6 @@ static NSString* GAEscapeNSString(NSString* value) {
 }
 
 @synthesize dryRun=_dryRun;
-@synthesize debug=_debug;
 @synthesize debugwebview=_debugwebview;
 @synthesize accountID=_accountID;
 @synthesize anonymizeIp=_anonymizeIp;
@@ -133,6 +132,11 @@ static NSString* GAEscapeNSString(NSString* value) {
         NSLog(@"[GAJST] checking for engine");
     
     return (_JSEngine!=NULL);
+}
+
+- (void) setDebug:(BOOL)debug {
+    _debug = debug;
+    _JSEngine.debug = debug;
 }
 
 - (void)setBatchSize:(NSUInteger)batchSize {

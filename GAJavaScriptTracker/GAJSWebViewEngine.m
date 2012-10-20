@@ -122,8 +122,9 @@
 - (void)sendOffBatchedJS {
     if(_webviewLoaded) {
         for(id aJSString in _webViewPendingScripts) {
-            //run it
-            NSLog(@"[JSC] Evaluate JS: %@ %@ %@", aJSString, _webView.customUserAgent, _webView.applicationNameForUserAgent);
+            if (self.debug) {
+                NSLog(@"[JSC] Evaluate JS: %@ %@ %@", aJSString, _webView.customUserAgent, _webView.applicationNameForUserAgent);
+            }
             NSString *result = [_webView stringByEvaluatingJavaScriptFromString:aJSString];
             if (!result) {
                 ELog(@"[JSC] No result returned");
